@@ -87,7 +87,7 @@ var io = ioContract.new(
                     console.log('Counter value '+conter);
                     if (conter==clientnumber)
                             {
-				console.log('End Time:'+new Date().getTime() / 1000 )    
+				   
                                 var output='';
                                 for (i=0;i<=clientaddresses.length;i++)
                                     console.log(delays[i]);
@@ -96,6 +96,7 @@ var io = ioContract.new(
                                             return console.log(err);
                                         }
                                         console.log("The file was saved!");
+					console.log('End Time:'+new Date().getTime() / 1000 );    
                                         }); 
                                     
                                 clearInterval(timer);	
