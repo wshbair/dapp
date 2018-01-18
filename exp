@@ -1,0 +1,12 @@
+!/bin/bash
+filename="mining-nodes.txt"
+
+for host in `cat $filename`; do
+     nohup ssh  -oStrictHostKeyChecking=no root@$host pkill geth >/dev/null 2>&1 &
+done
+echo 'All nodes are Stopped'
+
+for host in `cat $filename`; do
+   nohup ssh root@$host  Blockchain-Testbed/Blockchain/ethereum/mining.sh 2> /dev/null 2>&1 &
+done
+echo 'minging start'
