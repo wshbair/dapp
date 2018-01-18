@@ -275,7 +275,7 @@ class Sha1 {
      */
     static ROTL(x, n) {
         return (x<<n) | (x>>>(32-n));
-    }
+    } 
 
 }
 
