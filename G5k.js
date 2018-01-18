@@ -87,9 +87,9 @@ var io = ioContract.new(
                     if (conter==clientnumber)
                             {
                                 var output='';
-                                for (i=0;i<clientaddresses.length;i++)
+                                for (i=0;i<=clientaddresses.length;i++)
                                     console.log(delays[i]);
-                                    fs.writeFile("Result1.txt",delays[i]+'\n', function(err) {
+                                    fs.appendFile("Result1.txt",delays[i]+'\n', function(err) {
                                         if(err) {
                                             return console.log(err);
                                         }
