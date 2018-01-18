@@ -87,6 +87,7 @@ var io = ioContract.new(
                     console.log('Counter value '+conter);
                     if (conter==clientnumber)
                             {
+				console.log('End Time:'+new Date().getTime() / 1000 )    
                                 var output='';
                                 for (i=0;i<=clientaddresses.length;i++)
                                     console.log(delays[i]);
@@ -104,7 +105,7 @@ var io = ioContract.new(
 
                 });
                 p.start();               
-		console.log('End Time:'+new Date().getTime() / 1000 )
+		
 
     }
   }
