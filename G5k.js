@@ -65,7 +65,7 @@ var io = ioContract.new(
                 var txhash3=contract.SetKYC(web3.eth.accounts[counter-1],CountryOfResidence,LinkToLuxembourg,DecisionJustification,{gas: 2100000, from: web3.eth.accounts[0]});
                 var txhash4=contract.SetTransaction(web3.eth.accounts[counter-1],Frequency,addtional,funds,{gas: 2100000, from: web3.eth.accounts[0]});
 
-                console.log('KYC Client sent : '+ clientaddresses)
+                console.log('KYC Client sent : '+ ClientAddress)
                 delays.push(new Date().getTime() / 1000); 
             
                 
