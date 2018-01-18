@@ -28,7 +28,7 @@ var io = ioContract.new(
             var clientnumber=3;
 
             console.log("Performance Test Start");
-	    consile.log('start Time:'+new Date().getTime() / 1000 )
+	    console.log('start Time:'+new Date().getTime() / 1000 )
             console.log("----------------------------------");        
                 var p = poissonProcess.create(40000, function NewClient(){
                 delays.push(new Date().getTime() / 1000);     
@@ -104,7 +104,7 @@ var io = ioContract.new(
 
                 });
                 p.start();               
-		consile.log('End Time:'+new Date().getTime() / 1000 )
+		console.log('End Time:'+new Date().getTime() / 1000 )
 
     }
   }
