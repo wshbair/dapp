@@ -65,7 +65,8 @@ var io = ioContract.new(
                 var txhash3=contract.SetKYC(web3.eth.accounts[counter-1],CountryOfResidence,LinkToLuxembourg,DecisionJustification,{gas: 2100000, from: web3.eth.accounts[0]});
                 var txhash4=contract.SetTransaction(web3.eth.accounts[counter-1],Frequency,addtional,funds,{gas: 2100000, from: web3.eth.accounts[0]});
 
-                console.log('New Client sent : '+ clientaddresses)
+                console.log('KYC Client sent : '+ clientaddresses)
+                delays.push(new Date().getTime() / 1000); 
             
                 
                 if(clientaddresses.length==clientnumber)
@@ -76,10 +77,9 @@ var io = ioContract.new(
                     var conter=0; 
                     for (var i=0; i<clientaddresses.length;i++)
                     {
-                        var resul=CheckRegistationStatus(clientaddresses[i]);
+                        var resul=CheckRegistationStatus(clientaddresses[i],contract);
                         if(resul)
                         {
-                            //console.log(clientaddresses[i])
                             conter++;
                         }
                     }
@@ -89,6 +89,12 @@ var io = ioContract.new(
                                 var output='';
                                 for (i=0;i<clientaddresses.length;i++)
                                     console.log(delays[i]);
+                                    fs.writeFile("Result1.txt",delays[i], function(err) {
+                                        if(err) {
+                                            return console.log(err);
+                                        }
+                                        console.log("The file was saved!");
+                                        }); 
                                     
                                 clearInterval(timer);	
                             }
@@ -104,7 +110,7 @@ var io = ioContract.new(
 )
     
 //======================================================================================================================
-function CheckRegistationStatus(clientaddress) {
+function CheckRegistationStatus(clientaddress, contract) {
 
 		 var clientinfo=contract.GetClientInfoByAddress.call(clientaddress, {gas: 2000000, from: web3.eth.accounts[0]});
 
